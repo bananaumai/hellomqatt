@@ -40,9 +40,13 @@ class MainActivity : AppCompatActivity() {
         if (client.isConnected) {
             Log.d("MQTT", "publish message!")
             client.publish("test/topic", "Hello MQTT".toByteArray(), 0, true)
-            client.close()
         } else {
             Log.d("MQTT", "not connected...")
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        client.close()
     }
 }
