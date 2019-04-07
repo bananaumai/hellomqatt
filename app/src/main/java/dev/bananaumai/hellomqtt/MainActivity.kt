@@ -3,6 +3,7 @@ package dev.bananaumai.hellomqtt
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.IMqttActionListener
 import org.eclipse.paho.client.mqttv3.IMqttToken
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun mqttPublish(view: android.view.View) {
+    fun View.mqttPublish() {
         if (client.isConnected) {
             Log.d("MQTT", "publish message!")
             client.publish("test/topic", "Hello MQTT".toByteArray(), 0, true)
