@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         client = MqttAndroidClient(
-            applicationContext,
+            this,
             "tcp://10.0.2.2:1883", MqttClient.generateClientId()
         )
         client.connect(null, object : IMqttActionListener {
